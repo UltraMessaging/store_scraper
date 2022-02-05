@@ -60,7 +60,7 @@ store_scraper.sh store_url
 
 For example:
 ````
-$ ./store_scraper.sh mamba.29west.com:12010
+$ ./store_scraper.sh http://mamba.29west.com:12010
 Store null
 Store tst
 Store=tst Srcctx=10.29.3.101.14394 Transp=LBTRM:10.29.3.101:14390:d5c07481:224.10.10.10:14400 Topic=tst Regid=1750475241 Sessid=0 Sync=[399, 399, 399]
