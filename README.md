@@ -40,12 +40,18 @@ THE LIKELIHOOD OF SUCH DAMAGES.
 
 See https://github.com/UltraMessaging/store_scraper for code and documentation.
 
-## store_scraper.sh
+## Introduction
+
+The store_scraper.sh tool is a fairly simple shell script that crawls an
+Ultra Messaging Store web monitor and prints some summary information about
+each source that is being persisted.
+The intention is that this would be a starting place for a user to write
+their own tool, extracting and printing more desired information.
 
 You must have curl and perl installed.
 This script has been tested with Linux and Mac.
 
-Usage:
+## Usage
 
 ````
 store_scraper.sh store_url
@@ -67,15 +73,27 @@ It is a bad idea to flood a UM Store with webmon requests.
 The web monitor thread takes a lock during its operation which contents
 with message processing.
 
-There's a Perl command that may not be obvious:
+The Perl programs are run with "-nlae" flags, which are intended to make old Awk programmers feel more at home:
+* -n basically wraps your program in an implied loop, reading each input line and running your code until end of file.
+* -l performs a "chomp" on each input line (removing the newline) and also adds an implicit newline to each print.
+* -a does an automatic "split" of the input line into the array "@F". (My programs don't actually use this.)
+* -e tells Perl that the program is the next thing on the command line.
+
+So consider the shell line:
+````
+STORES=`perl -nlae 'if (/>Store \d+:<A HREF="([^"]+)"/){print "$1";}' curl.stores`
+````
+This reads each line of "curl.stores", chomps it, and performs the "if" statement.
+
+Here's a Perl command that is probably not clear:
 ````
   IDS=`perl -nlae 'while (s/(LI>"[^"]+" - +)<A HREF="([^"]+)">[^\/]+\/A> /$1/){print "$2";}' curl.store`
 ````
-It uses a "while" loop and a substitute command, while the other Perl commands just use a simple "if" statement.
-This is because there can be more than one registered source per topic,
+It uses a "while" loop and a substitute command because there can be more than one registered source per topic,
 and the per-source links are all on the same line.
+The "while" loops through the links, and the substitute makes sure the loop exits.
 
-So let's say that the input line is:
+Let's say that the input line is this:
 ````
 <UL><LI>"tst" -  <A HREF="/stores/1/1750475241">1750475241(0)</A>  <A HREF="/stores/1/1750475242">1750475242(0)</A> </UL>
 ````
