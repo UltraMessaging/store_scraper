@@ -61,8 +61,8 @@ store_scraper.sh store_url
 For example:
 ````
 $ ./store_scraper.sh mamba.29west.com:12010
-Store=null
-Store=tst
+Store null
+Store tst
 Store=tst Srcctx=10.29.3.101.14394 Transp=LBTRM:10.29.3.101:14390:d5c07481:224.10.10.10:14400 Topic=tst Regid=1750475241 Sessid=0 Sync=[399, 399, 399]
 Store=tst Srcctx=10.29.3.101.14395 Transp=LBTRM:10.29.3.101:14391:51c9610c:224.10.10.10:14400 Topic=tst Regid=1750475242 Sessid=0 Sync=[394, 394, 394]
 ````
@@ -116,7 +116,7 @@ The next loop will replace:
 ````
 LI>"tst" -    <A HREF="/stores/1/1750475242">1750475242(0)</A>
 ````
-with
+with:
 ````
 LI>"tst" -  
 ````

@@ -46,7 +46,7 @@ for S in $STORES; do :
   STORE=`perl -nlae 'if (/H3>Store \d+: ([^<]+)</){print "$1";}' curl.store`
   # Get list of sources (by registration ID) registered with the Store.
   IDS=`perl -nlae 'while (s/(LI>"[^"]+" - +)<A HREF="([^"]+)">[^\/]+\/A> /$1/){print "$2";}' curl.store`
-  echo "Store=$STORE"
+  echo "Store $STORE"
 
   for ID in $IDS; do :
     curl -s $W/$ID >curl.src
