@@ -99,14 +99,28 @@ Let's say that the input line is this:
 <UL><LI>"tst" -  <A HREF="/stores/1/1750475241">1750475241(0)</A>  <A HREF="/stores/1/1750475242">1750475242(0)</A> </UL>
 ````
 
-The first loop will replace 'LI>"tst" -  <A HREF="/stores/1/1750475241">1750475241(0)</A>'
-with 'LI>"tst" -  ' and print '/stores/1/1750475241', leaving the input line as this:
+The first loop will replace:
+````
+LI>"tst" -  <A HREF="/stores/1/1750475241">1750475241(0)</A>
+````
+with:
+````
+LI>"tst" -  
+````
+ and print '/stores/1/1750475241', leaving the input line as this:
 ````
 <UL><LI>"tst" -    <A HREF="/stores/1/1750475242">1750475242(0)</A> </UL>
 ````
 
-The next loop will replace 'LI>"tst" -    <A HREF="/stores/1/1750475242">1750475242(0)</A>'
-with 'LI>"tst" -  ' and print '/stores/1/1750475242', leaving the input line as this:
+The next loop will replace:
+````
+LI>"tst" -    <A HREF="/stores/1/1750475242">1750475242(0)</A>
+````
+with
+````
+LI>"tst" -  
+````
+ and print '/stores/1/1750475242', leaving the input line as this:
 ````
 <UL><LI>"tst" -     </UL>
 ````
