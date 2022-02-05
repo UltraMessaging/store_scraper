@@ -8,7 +8,8 @@ This is a shell script that crawls an Ultra Messaging Store web monitor.
 - [Table of contents](#table-of-contents)
   - [COPYRIGHT AND LICENSE](#copyright-and-license)
   - [REPOSITORY](#repository)
-  - [store_scraper.sh](#store_scrapersh)
+  - [Introduction](#introduction)
+  - [Usage](#usage)
   - [Code Notes](#code-notes)
 
 <sup>(table of contents from https://luciopaiva.com/markdown-toc/)</sup>
