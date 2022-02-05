@@ -1,22 +1,6 @@
 .DS_Store
-*.jar
-*.class
-*.o
-x.*
-xx.*
-xxx.*
+curl.*
 *.log
-um_perf_jitter
-usb_perf
-um_perf_pub
-um_perf_sub
-sock_perf_sub
-
-# UM-specific overhead files
-labbox.sh
-lbm.sh
-lbm.lic
-*.txt
 x
 x.*
 *.x

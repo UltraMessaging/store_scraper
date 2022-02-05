@@ -42,8 +42,8 @@ See https://github.com/UltraMessaging/store_scraper for code and documentation.
 
 ## store_scraper.sh
 
-This script has been tested with Linux.
 You must have curl and perl installed.
+This script has been tested with Linux and Mac.
 
 Usage:
 
