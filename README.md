@@ -1,4 +1,4 @@
-# store_scraper - Simple UM Store webmon scraper
+# store_scraper - Simple UM Store Web Monitor Scraper
 
 This is a shell script that crawls an Ultra Messaging Store web monitor.
 
@@ -43,13 +43,13 @@ See https://github.com/UltraMessaging/store_scraper for code and documentation.
 
 ## Introduction
 
-The store_scraper.sh tool is a fairly simple shell script that crawls an
+The store_scraper.sh tool is a reasonably simple shell script that crawls an
 Ultra Messaging Store web monitor and prints some summary information about
 each source that is being persisted.
 The intention is that this would be a starting place for a user to write
 their own tool, extracting and printing more desired information.
 
-You must have curl and perl installed.
+You must have curl and Perl installed.
 This script has been tested with Linux and Mac.
 
 ## Usage
@@ -73,15 +73,15 @@ Store=tst Srcctx=10.29.3.101.14395 Transp=LBTRM:10.29.3.101:14391:51c9610c:224.1
 ## Code Notes
 
 Note the "sleep .1" lines.
-It is a bad idea to flood a UM Store with webmon requests.
-The web monitor thread takes a lock during its operation which contents
+It is bad to flood a UM Store with rapid-fire web mon requests.
+The web monitor thread takes a lock during its operation, which contends
 with message processing.
 
 The Perl programs are run with "-nlae" flags, which are intended to make old Awk programmers feel more at home:
-* -n basically wraps your program in an implied loop, reading each input line and running your code until end of file.
+* -n wraps your program in an implied loop, reading each input line and running your code until end of file.
 * -l performs a "chomp" on each input line (removing the newline) and also adds an implicit newline to each print.
-* -a does an automatic "split" of the input line into the array "@F". (My programs don't actually use this.)
-* -e tells Perl that the program is the next thing on the command line.
+* -a does an automatic "split" of the input line into the array "@F". (These programs don't actually use this.)
+* -e tells Perl that the program is next on the command line.
 
 So consider the shell line:
 ````
@@ -115,7 +115,7 @@ LI>"tst" -
 <UL><LI>"tst" -    <A HREF="/stores/1/1750475242">1750475242(0)</A> </UL>
 ````
 
-The next loop will replace:
+The next loop cycle will replace:
 ````
 LI>"tst" -    <A HREF="/stores/1/1750475242">1750475242(0)</A>
 ````
