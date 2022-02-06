@@ -58,7 +58,10 @@ This script has been tested with Linux and Mac.
 store_scraper.sh store_url
 ````
 
-For example:
+For example, the store process running on mamba.29west.com:12010 has two
+store instances named "null" and "tst".
+The store "null" has no applications registered with it.
+The store "tst" has two sources registered with it.:
 ````
 $ ./store_scraper.sh http://mamba.29west.com:12010
 Store null
