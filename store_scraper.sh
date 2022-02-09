@@ -50,13 +50,14 @@ for S in $STORES; do :
 
   for ID in $IDS; do :
     curl -s $W/$ID >curl.src
-    SYNC=`perl -nlae 'if (/LI>Sync: \[([^\]]+)\]/){print "$1";}' curl.src`
     sleep .1
+    SYNC=`perl -nlae 'if (/LI>Sync: \[([^\]]+)\]/){print "$1";}' curl.src`
+    WIN=`perl -nlae 'if (/LI>Window: \[([^\]]+)\]/){print "$1";}' curl.src`
     TOPIC=`perl -nlae 'if (/DD>Topic: "([^"]+)"/){print "$1";}' curl.src`
     REGID=`perl -nlae 'if (/H3>(\d+):/){print "$1"}' curl.src`
     SRCCTX=`perl -nlae 'if (/H3>\d+: Source \[\d+ ([^ ]+) /){print "$1"}' curl.src`
     TRANSP=`perl -nlae 'if (/DD>LBM Stats: \[([^\]]+)\]/){print "$1"}' curl.src`
     SESSID=`perl -nlae 'if (/DD>Session ID: (\d+)/){print "$1";}' curl.src`
-    echo "Store=$STORE Srcctx=$SRCCTX Transp=$TRANSP Topic=$TOPIC Regid=$REGID Sessid=$SESSID Sync=[$SYNC]"
+    echo "Store=$STORE Srcctx=$SRCCTX Transp=$TRANSP Topic=$TOPIC Regid=$REGID Sessid=$SESSID Win=[$WIN] Sync=[$SYNC]"
   done
 done
